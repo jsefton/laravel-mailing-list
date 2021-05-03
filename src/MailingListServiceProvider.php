@@ -4,6 +4,8 @@ namespace JSefton\MailingList;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use JSefton\MailingList\Commands\MailingListCreate;
+use JSefton\MailingList\Commands\MailingListList;
 
 class MailingListServiceProvider extends ServiceProvider
 {
@@ -27,17 +29,20 @@ class MailingListServiceProvider extends ServiceProvider
         if (is_dir(__DIR__.'/../config')) {
             $this->publishes([
                 __DIR__ . '/../config/' => config_path(),
-            ], 'package-feature.config');
+            ], 'mailing-list.config');
         }
 
         if (is_dir(__DIR__.'/../migrations')) {
             $this->loadMigrationsFrom(__DIR__ . '/../migrations');
         }
 
-        if (is_dir(__DIR__.'/../resources/views')) {
-            $this->loadViewsFrom(__DIR__ . '/../resources/views', 'package-feature');
-        }
-
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MailingListCreate::class,
+                MailingListList::class,
+            ]);
+        }
     }
 }
