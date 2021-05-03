@@ -16,6 +16,12 @@ You will need to publish the config to set if API is enabled
 php artisan vendor:publish --tag=mailing-list.config
 ```
 
+Next run migrations to add the required tables
+
+```bash
+php artisan migrate
+```
+
 ## Usage
 
 ### Config
