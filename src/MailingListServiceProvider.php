@@ -1,6 +1,6 @@
 <?php
 
-namespace Package\Feature;
+namespace JSefton\MailingList;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
