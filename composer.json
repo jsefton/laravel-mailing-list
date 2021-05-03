@@ -7,7 +7,8 @@
   "license": "MIT",
   "repositories":[],
   "require": {
-      "laravel/framework": ">=7.0"
+      "laravel/framework": ">=7.0",
+      "jsefton/laravel-virtual-fields": "^1.0"
   },
   "archive": {
     "exclude": [
