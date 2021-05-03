@@ -121,3 +121,7 @@ You can get the mailing list they are attached to with:
 ```php
 $list = $email->mailingList
 ```
+
+---
+
+Please note currently for Laravel 7+ until tested and verified in lower versions.
